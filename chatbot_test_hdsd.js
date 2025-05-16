@@ -185,7 +185,7 @@ style.innerHTML = `
   chatContainer.id = 'n8n-chat-container';
   chatContainer.innerHTML = `
     <div id="n8n-chat-header">
-      <h4>Chatbot Alita</h4>
+      <h4>Chatbot Alita hướng dẫn SD</h4>
       <button id="n8n-chat-close">×</button>
     </div>
     <div id="n8n-chat-messages"></div>
