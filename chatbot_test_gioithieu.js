@@ -173,6 +173,45 @@ style.innerHTML = `
     font-size: 15px;
   }
 }
+/* Hiệu ứng ba chấm đang gõ */
+.n8n-typing {
+  display: inline-block;
+  font-size: 16px;
+  background: #dcfce7;
+  border-radius: 18px;
+  padding: 10px 14px;
+  max-width: 75%;
+  align-self: flex-start;
+}
+
+.n8n-typing span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  animation: typing-bounce 1.4s infinite ease-in-out;
+}
+
+.n8n-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.n8n-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  } 
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 `;
   document.head.appendChild(style);
 
@@ -223,7 +262,16 @@ style.innerHTML = `
     msgBox.innerHTML += `<div class="n8n-msg n8n-user">${text}</div>`;
     input.value = '';
     msgBox.scrollTop = msgBox.scrollHeight;
-
+    
+  // Thêm typing indicator
+    const typingId = 'n8n-typing-indicator';
+    msgBox.innerHTML += `
+      <div id="${typingId}" class="n8n-msg n8n-typing">
+        <span></span><span></span><span></span>
+      </div>
+    `;
+    msgBox.scrollTop = msgBox.scrollHeight;
+  
     try {
       const res = await fetch('https://alita.htsvietnam.com/webhook/chatbot_gioithieu', {
         method: 'POST',
@@ -235,10 +283,12 @@ style.innerHTML = `
       const formattedReply = data.reply
         .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>')
         .replace(/\n/g, '<br>');
-
+      
+      document.getElementById(typingId)?.remove(); // Xoá "Đang phản hồi..."
       msgBox.innerHTML += `<div class="n8n-msg n8n-bot">${formattedReply}</div>`;
       msgBox.scrollTop = msgBox.scrollHeight;
     } catch (err) {
+      document.getElementById(typingId)?.remove();
       msgBox.innerHTML += `<div class="n8n-msg n8n-bot">Bot: Lỗi kết nối máy chủ</div>`;
       msgBox.scrollTop = msgBox.scrollHeight;
     }
