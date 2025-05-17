@@ -253,6 +253,14 @@ style.innerHTML = `
 .n8n-suggest:hover {
   background-color: #bbf7d0;
 }
+#n8n-chat-footer {
+  font-size: 13px;
+  text-align: center;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+}
 
 
 `;
@@ -280,6 +288,11 @@ style.innerHTML = `
       <input id="n8n-chat-input" type="text" placeholder="Nhập tin nhắn..." />
       <button id="n8n-chat-send">➤</button>
     </div>
+    <div id="n8n-chat-footer">
+  Đối tác triển khai ứng dụng AI hàng đầu cho doanh nghiệp –
+  <span style="color: #10b981; font-weight: bold;">Powered by Alita AI</span>
+</div>
+
   `;
   document.body.appendChild(chatContainer);
 
