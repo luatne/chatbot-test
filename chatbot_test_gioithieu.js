@@ -230,6 +230,30 @@ style.innerHTML = `
   max-width: 80%;
   word-wrap: break-word;
 }
+#n8n-suggest-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.n8n-suggest {
+  padding: 6px 12px;
+  background-color: #f0fdf4;
+  border: 1px solid #4ade80;
+  color: #166534;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.n8n-suggest:hover {
+  background-color: #bbf7d0;
+}
+
 
 `;
   document.head.appendChild(style);
@@ -247,6 +271,11 @@ style.innerHTML = `
       <button id="n8n-chat-close">×</button>
     </div>
     <div id="n8n-chat-messages"></div>
+    <div id="n8n-suggest-buttons">
+      <button class="n8n-suggest">Đặt lịch hẹn 📅</button>
+      <button class="n8n-suggest">Giới thiệu về Easy AI Chat 🧨</button>
+      <button class="n8n-suggest">Liên hệ báo giá gói dịch vụ 🤖</button>
+    </div>
     <div id="n8n-chat-input-container">
       <input id="n8n-chat-input" type="text" placeholder="Nhập tin nhắn..." />
       <button id="n8n-chat-send">➤</button>
@@ -343,5 +372,14 @@ function createBotMessage(text) {
   chatMessages.scrollTop = chatMessages.scrollHeight;
 
 }
+const suggestButtons = document.querySelectorAll('.n8n-suggest');
+suggestButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const input = document.getElementById('n8n-chat-input');
+    input.value = btn.textContent;
+    document.getElementById('n8n-chat-send').click();
+  });
+});
+
 
 })();
