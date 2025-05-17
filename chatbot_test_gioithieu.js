@@ -328,7 +328,7 @@ function createBotMessage(text) {
   msg.className = "msg bot";
 
   const avatar = document.createElement("img");
-  avatar.src = "https://link-to-your-icon.png"; // thay bằng link icon thật
+  avatar.src = "https://chatbot-n8n-mmd6.vercel.app/alitalogo.png"; // thay bằng link icon thật
   avatar.className = "avatar";
 
   const bubble = document.createElement("div");
