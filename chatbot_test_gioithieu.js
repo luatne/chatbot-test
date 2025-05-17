@@ -290,7 +290,7 @@ style.innerHTML = `
     </div>
     <div id="n8n-chat-footer">
   Đối tác triển khai ứng dụng AI hàng đầu cho doanh nghiệp –
-  <span style="color: #10b981; font-weight: bold;">Powered by Alita AI</span>
+  <span style="color: #10b981; font-weight: bold;">Powered by TheAlita</span>
 </div>
 
   `;
