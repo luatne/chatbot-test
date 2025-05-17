@@ -242,9 +242,9 @@ style.innerHTML = `
     const msgBox = document.getElementById('n8n-chat-messages');
     if (!greetingSent) {
       msgBox.innerHTML += `<div class="n8n-msg n8n-bot">Em là Sena, chuyên viên tư vấn của Alita, em sẽ hỗ trợ anh chị trong các dịch vụ sau
-1. Thông tin giới thiệu nền tảng Alita
-2. Thông tin chi tiết về giá dịch vụ
-3. Tìm kiếm tập khách hàng phù hợp
+1. Thông tin giới thiệu nền tảng Alita</br>
+2. Thông tin chi tiết về giá dịch vụ</br>
+3. Tìm kiếm tập khách hàng phù hợp</br>
 Anh/chị cần hỗ trợ dịch vụ nào ạ</div>`;
       msgBox.scrollTop = msgBox.scrollHeight;
       greetingSent = true;
