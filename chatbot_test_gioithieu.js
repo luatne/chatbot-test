@@ -211,6 +211,25 @@ style.innerHTML = `
     opacity: 1;
   }
 }
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+  align-self: flex-start;
+}
+.msg.bot {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.bubble {
+  background-color: #f0f0f0;
+  padding: 10px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
 
 `;
   document.head.appendChild(style);
@@ -289,7 +308,7 @@ Anh/chị cần hỗ trợ dịch vụ nào ạ</div>`;
         .replace(/\n/g, '<br>');
       
       document.getElementById(typingId)?.remove(); // Xoá "Đang phản hồi..."
-      msgBox.innerHTML += `<div class="n8n-msg n8n-bot">${formattedReply}</div>`;
+      createBotMessage(formattedReply);
       msgBox.scrollTop = msgBox.scrollHeight;
     } catch (err) {
       document.getElementById(typingId)?.remove();
@@ -303,5 +322,25 @@ Anh/chị cần hỗ trợ dịch vụ nào ạ</div>`;
     document.getElementById('n8n-chat-send').click(); // Giả lập click nút gửi
   }
 });
+function createBotMessage(text) {
+  const msg = document.createElement("div");
+  msg.className = "msg bot";
+
+  const avatar = document.createElement("img");
+  avatar.src = "https://link-to-your-icon.png"; // thay bằng link icon thật
+  avatar.className = "avatar";
+
+  const bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.innerHTML = text;
+
+  msg.appendChild(avatar);
+  msg.appendChild(bubble);
+
+  const chatMessages = document.getElementById("n8n-chat-messages");
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+}
 
 })();
