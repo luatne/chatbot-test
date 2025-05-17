@@ -272,9 +272,9 @@ style.innerHTML = `
     </div>
     <div id="n8n-chat-messages"></div>
     <div id="n8n-suggest-buttons">
-      <button class="n8n-suggest">Đặt lịch hẹn 📅</button>
-      <button class="n8n-suggest">Giới thiệu về Easy AI Chat 🧨</button>
-      <button class="n8n-suggest">Liên hệ báo giá gói dịch vụ 🤖</button>
+      <button class="n8n-suggest">🧠 Thông tin giới thiệu nền tảng Alita</button>
+      <button class="n8n-suggest">💰 Thông tin chi tiết về giá dịch vụ</button>
+      <button class="n8n-suggest">🎯 Tìm kiếm tập khách hàng phù hợp</button>
     </div>
     <div id="n8n-chat-input-container">
       <input id="n8n-chat-input" type="text" placeholder="Nhập tin nhắn..." />
