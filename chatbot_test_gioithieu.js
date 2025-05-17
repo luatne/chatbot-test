@@ -302,8 +302,7 @@ Anh/chị cần hỗ trợ dịch vụ nào ạ`);
 
   document.getElementById('n8n-chat-close').onclick = () => {
     chatContainer.style.display = 'none';
-    document.getElementById('n8n-chat-messages').innerHTML = '';
-    greetingSent = false;
+
   };
 
   document.getElementById('n8n-chat-send').onclick = async function () {
