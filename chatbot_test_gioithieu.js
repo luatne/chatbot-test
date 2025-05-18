@@ -261,6 +261,18 @@ style.innerHTML = `
   border-top: 1px solid #e5e7eb;
   color: #6b7280;
 }
+#n8n-chat-input {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-top: 1px solid #ccc;
+}
+
+#n8n-input-menu {
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
 
 
 `;
@@ -285,6 +297,7 @@ style.innerHTML = `
       <button class="n8n-suggest">🎯 Tìm kiếm tập khách hàng phù hợp</button>
     </div>
     <div id="n8n-chat-input-container">
+      <span id="n8n-input-menu">☰</span>
       <input id="n8n-chat-input" type="text" placeholder="Nhập tin nhắn..." />
       <button id="n8n-chat-send">➤</button>
     </div>
@@ -392,6 +405,9 @@ suggestButtons.forEach(btn => {
     document.getElementById('n8n-chat-send').click();
   });
 });
+document.getElementById('n8n-input-menu').onclick = () => {
+  alert("Mở menu chức năng ở đây!");
+};
 
 
 })();
