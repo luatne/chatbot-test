@@ -322,11 +322,7 @@ style.innerHTML = `
     chatContainer.style.display = 'flex';
     const msgBox = document.getElementById('n8n-chat-messages');
     if (!greetingSent) {
-  createBotMessage(`Em là Sena, chuyên viên tư vấn của Alita, em sẽ hỗ trợ anh chị trong các dịch vụ sau<br>
-1. Thông tin giới thiệu nền tảng Alita</br>
-2. Thông tin chi tiết về giá dịch vụ</br>
-3. Tìm kiếm tập khách hàng phù hợp</br>
-Anh/chị cần hỗ trợ dịch vụ nào ạ`);
+  createBotMessage(`Em là Sena – chuyên viên tư vấn Alita. Anh/chị cần hỗ trợ nội dung nào, có thể chọn nhanh bên dưới ạ.`);
   msgBox.scrollTop = msgBox.scrollHeight;
   greetingSent = true;
 }
