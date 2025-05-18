@@ -37,14 +37,15 @@ style.innerHTML = `
   }
 
   #n8n-chat-header {
-    background: #0C0140;
     color: white;
+    background: linear-gradient(135deg, #1E006A, #3B00A4);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
