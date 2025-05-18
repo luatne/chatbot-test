@@ -43,7 +43,10 @@ style.innerHTML = `
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 24px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   #n8n-chat-header h4 {
