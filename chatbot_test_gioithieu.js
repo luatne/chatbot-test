@@ -294,7 +294,7 @@ style.innerHTML = `
     <div id="n8n-chat-header">
       <h4>
         <img src="/096130.jpg" alt="Avatar" style="width: 24px; height: 24px; border-radius: 50%;" />
-        Ms Sena from Alita
+        <strong>Ms Sena</strong><span style="opacity: 0.8; margin-left: 4px;">from Alita</span>
       </h4>
       <button id="n8n-chat-close">×</button>
     </div>
