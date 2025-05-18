@@ -275,7 +275,7 @@ style.innerHTML = `
   chatContainer.id = 'n8n-chat-container';
   chatContainer.innerHTML = `
     <div id="n8n-chat-header">
-      <h4>Chatbot Alita giới thiệu</h4>
+      <h4>Ms Sena from Alita</h4>
       <button id="n8n-chat-close">×</button>
     </div>
     <div id="n8n-chat-messages"></div>
@@ -289,8 +289,8 @@ style.innerHTML = `
       <button id="n8n-chat-send">➤</button>
     </div>
     <div id="n8n-chat-footer">
-  Đối tác triển khai ứng dụng AI hàng đầu cho doanh nghiệp –
-  <span style="color: #10b981; font-weight: bold;">Powered by TheAlita</span>
+  Top 5 Global Social Data Platforms of 2024
+  <span style="color: #10b981; font-weight: bold;">Powered by Alita</span>
 </div>
 
   `;
