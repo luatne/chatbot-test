@@ -340,7 +340,9 @@ Anh/chị cần hỗ trợ dịch vụ nào ạ`);
     msgBox.innerHTML += `<div class="n8n-msg n8n-user">${text}</div>`;
     input.value = '';
     msgBox.scrollTop = msgBox.scrollHeight;
-    
+    // tắt tin nhắn gợi ý
+    document.getElementById('n8n-suggest-buttons').style.display = 'none';
+
   // Thêm typing indicator
     const typingId = 'n8n-typing-indicator';
     msgBox.innerHTML += `
