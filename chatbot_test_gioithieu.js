@@ -405,9 +405,18 @@ suggestButtons.forEach(btn => {
     document.getElementById('n8n-chat-send').click();
   });
 });
-document.getElementById('n8n-input-menu').onclick = () => {
-  alert("Mở menu chức năng ở đây!");
-};
+  document.getElementById('n8n-input-menu').onclick = function () {
+    const suggestBox = document.getElementById('n8n-suggest-buttons');
+    if (suggestBox.style.display === 'none' || !suggestBox.style.display) {
+      suggestBox.style.display = 'flex';
+    } else {
+      suggestBox.style.display = 'none';
+    }
+  };
+
+  // Mặc định gợi ý hiển thị (hoặc bạn có thể ẩn ngay từ đầu)
+  // document.getElementById('n8n-suggest-buttons').style.display = 'none';
+
 
 
 })();
