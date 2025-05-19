@@ -294,7 +294,7 @@ style.innerHTML = `
     <div id="n8n-chat-header">
       <h4>
         <img src="https://chatbot-test-teal-ten.vercel.app/096130.jpg" alt="Avatar" style="width: 30px; height: 30px; border-radius: 50%;" />
-        Ms Sena – Chuyên viên Alita
+        <span style="color: white;">Sena - Customer Assistant</span>
       </h4>
       <button id="n8n-chat-close">×</button>
     </div>
