@@ -300,13 +300,13 @@ style.innerHTML = `
     </div>
     <div id="n8n-chat-messages"></div>
     <div id="n8n-suggest-buttons">
-      <button class="n8n-suggest">🧠 Thông tin giới thiệu nền tảng Alita</button>
-      <button class="n8n-suggest">💰 Thông tin chi tiết về giá dịch vụ</button>
-      <button class="n8n-suggest">🎯 Tìm kiếm tập khách hàng phù hợp</button>
+      <button class="n8n-suggest">📘 Hướng dẫn sử dụng</button>
+      <button class="n8n-suggest">💰 Cách tính giá sản phẩm</button>
+      <button class="n8n-suggest">🔍 Tìm kiếm khách hàng tiềm năng</button>
     </div>
     <div id="n8n-chat-input-container">
       <span id="n8n-input-menu">☰</span>
-      <input id="n8n-chat-input" type="text" placeholder="Nhập tin nhắn..." />
+      <input id="n8n-chat-input" type="text" placeholder="Enter your message..." />
       <button id="n8n-chat-send">➤</button>
     </div>
     <div id="n8n-chat-footer">
