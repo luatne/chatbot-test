@@ -294,7 +294,7 @@ style.innerHTML = `
     <div id="n8n-chat-header">
       <h4>
         <img src="https://chatbot-test-teal-ten.vercel.app/096130.jpg" alt="Avatar" style="width: 30px; height: 30px; border-radius: 50%;" />
-        <span style="color: white;">Alex - Customer Assistant</span>
+        <span style="color: white;">Andy - Customer Assistant</span>
       </h4>
       <button id="n8n-chat-close">×</button>
     </div>
@@ -326,7 +326,7 @@ style.innerHTML = `
     chatContainer.style.display = 'flex';
     const msgBox = document.getElementById('n8n-chat-messages');
     if (!greetingSent) {
-  createBotMessage(`Em là Sena – chuyên viên tư vấn Alita. Anh/chị cần hỗ trợ nội dung nào, có thể chọn nhanh bên dưới ạ.`);
+  createBotMessage(`Em là Andy – chuyên viên tư vấn Alita. Anh/chị cần hỗ trợ nội dung nào, có thể chọn nhanh bên dưới ạ.`);
   msgBox.scrollTop = msgBox.scrollHeight;
   greetingSent = true;
 }
