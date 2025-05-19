@@ -37,12 +37,17 @@ style.innerHTML = `
   }
 
   #n8n-chat-header {
-    background: #0C0140;
     color: white;
+    background: linear-gradient(135deg, #1E006A, #3B00A4);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   #n8n-chat-header h4 {
@@ -173,6 +178,108 @@ style.innerHTML = `
     font-size: 15px;
   }
 }
+/* Hiệu ứng ba chấm đang gõ */
+.n8n-typing {
+  display: inline-block;
+  font-size: 16px;
+  background: #dcfce7;
+  border-radius: 18px;
+  padding: 10px 14px;
+  max-width: 75%;
+  align-self: flex-start;
+}
+
+.n8n-typing span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  animation: typing-bounce 1.4s infinite ease-in-out;
+}
+
+.n8n-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.n8n-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  } 
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+  align-self: flex-start;
+}
+.msg.bot {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.bubble {
+  background-color: #f0f0f0;
+  padding: 10px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+#n8n-suggest-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.n8n-suggest {
+  padding: 6px 12px;
+  background-color: #f0fdf4;
+  border: 1px solid #4ade80;
+  color: #166534;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.n8n-suggest:hover {
+  background-color: #bbf7d0;
+}
+#n8n-chat-footer {
+  font-size: 13px;
+  text-align: center;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+}
+#n8n-chat-input {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-top: 1px solid #ccc;
+}
+
+#n8n-input-menu {
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+
 `;
   document.head.appendChild(style);
 
@@ -185,14 +292,31 @@ style.innerHTML = `
   chatContainer.id = 'n8n-chat-container';
   chatContainer.innerHTML = `
     <div id="n8n-chat-header">
-      <h4>Chatbot Alita hướng dẫn SD</h4>
+      <h4>
+        <img src="https://chatbot-test-teal-ten.vercel.app/096130.jpg" alt="Avatar" style="width: 30px; height: 30px; border-radius: 50%;" />
+        <span style="color: white;">Alex - Customer Assistant</span>
+      </h4>
       <button id="n8n-chat-close">×</button>
     </div>
     <div id="n8n-chat-messages"></div>
+    <div id="n8n-suggest-buttons">
+      <button class="n8n-suggest">🧠 Thông tin giới thiệu nền tảng Alita</button>
+      <button class="n8n-suggest">💰 Thông tin chi tiết về giá dịch vụ</button>
+      <button class="n8n-suggest">🎯 Tìm kiếm tập khách hàng phù hợp</button>
+    </div>
     <div id="n8n-chat-input-container">
+      <span id="n8n-input-menu">☰</span>
       <input id="n8n-chat-input" type="text" placeholder="Nhập tin nhắn..." />
       <button id="n8n-chat-send">➤</button>
     </div>
+    <div id="n8n-chat-footer">
+  Top 5 Global Social Data Platforms of 2024
+  <a href="https://thealita.com/" target="_blank" style="text-decoration: none;">
+  <span style="color: #10b981; font-weight: bold;">Powered by Alita</span>
+</a>
+
+</div>
+
   `;
   document.body.appendChild(chatContainer);
 
@@ -202,16 +326,16 @@ style.innerHTML = `
     chatContainer.style.display = 'flex';
     const msgBox = document.getElementById('n8n-chat-messages');
     if (!greetingSent) {
-      msgBox.innerHTML += `<div class="n8n-msg n8n-bot">Em chào anh/chị, em là Alita, chuyên viên tư vấn của theAlita. Anh/chị cho em hỏi tên mình để tiện xưng hô nhé ạ?</div>`;
-      msgBox.scrollTop = msgBox.scrollHeight;
-      greetingSent = true;
-    }
+  createBotMessage(`Em là Sena – chuyên viên tư vấn Alita. Anh/chị cần hỗ trợ nội dung nào, có thể chọn nhanh bên dưới ạ.`);
+  msgBox.scrollTop = msgBox.scrollHeight;
+  greetingSent = true;
+}
+
   };
 
   document.getElementById('n8n-chat-close').onclick = () => {
     chatContainer.style.display = 'none';
-    document.getElementById('n8n-chat-messages').innerHTML = '';
-    greetingSent = false;
+
   };
 
   document.getElementById('n8n-chat-send').onclick = async function () {
@@ -223,7 +347,18 @@ style.innerHTML = `
     msgBox.innerHTML += `<div class="n8n-msg n8n-user">${text}</div>`;
     input.value = '';
     msgBox.scrollTop = msgBox.scrollHeight;
+    // tắt tin nhắn gợi ý
+    document.getElementById('n8n-suggest-buttons').style.display = 'none';
 
+  // Thêm typing indicator
+    const typingId = 'n8n-typing-indicator';
+    msgBox.innerHTML += `
+      <div id="${typingId}" class="n8n-msg n8n-typing">
+        <span></span><span></span><span></span>
+      </div>
+    `;
+    msgBox.scrollTop = msgBox.scrollHeight;
+  
     try {
       const res = await fetch('https://alita.htsvietnam.com/webhook/chatbot_hdsd', {
         method: 'POST',
@@ -235,10 +370,12 @@ style.innerHTML = `
       const formattedReply = data.reply
         .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>')
         .replace(/\n/g, '<br>');
-
-      msgBox.innerHTML += `<div class="n8n-msg n8n-bot">${formattedReply}</div>`;
+      
+      document.getElementById(typingId)?.remove(); // Xoá "Đang phản hồi..."
+      createBotMessage(formattedReply);
       msgBox.scrollTop = msgBox.scrollHeight;
     } catch (err) {
+      document.getElementById(typingId)?.remove();
       msgBox.innerHTML += `<div class="n8n-msg n8n-bot">Bot: Lỗi kết nối máy chủ</div>`;
       msgBox.scrollTop = msgBox.scrollHeight;
     }
@@ -249,5 +386,46 @@ style.innerHTML = `
     document.getElementById('n8n-chat-send').click(); // Giả lập click nút gửi
   }
 });
+function createBotMessage(text) {
+  const msg = document.createElement("div");
+  msg.className = "msg bot";
+
+  const avatar = document.createElement("img");
+  avatar.src = "https://chatbot-test-teal-ten.vercel.app/096130.jpg"; // thay bằng link icon thật
+  avatar.className = "avatar";
+
+  const bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.innerHTML = text;
+
+  msg.appendChild(avatar);
+  msg.appendChild(bubble);
+
+  const chatMessages = document.getElementById("n8n-chat-messages");
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+}
+const suggestButtons = document.querySelectorAll('.n8n-suggest');
+suggestButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const input = document.getElementById('n8n-chat-input');
+    input.value = btn.textContent;
+    document.getElementById('n8n-chat-send').click();
+  });
+});
+  document.getElementById('n8n-input-menu').onclick = function () {
+    const suggestBox = document.getElementById('n8n-suggest-buttons');
+    if (suggestBox.style.display === 'none' || !suggestBox.style.display) {
+      suggestBox.style.display = 'flex';
+    } else {
+      suggestBox.style.display = 'none';
+    }
+  };
+
+  // Mặc định gợi ý hiển thị (hoặc bạn có thể ẩn ngay từ đầu)
+  // document.getElementById('n8n-suggest-buttons').style.display = 'none';
+
+
 
 })();
