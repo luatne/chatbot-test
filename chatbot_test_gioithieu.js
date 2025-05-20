@@ -302,7 +302,7 @@ style.innerHTML = `
     <div id="n8n-suggest-buttons">
       <button class="n8n-suggest">🧠 Thông tin giới thiệu nền tảng Alita</button>
       <button class="n8n-suggest">💰 Thông tin chi tiết về giá dịch vụ</button>
-      <button class="n8n-suggest">🎯 Tìm kiếm tập khách hàng,ví dụ:bất động sản</button>
+      <button class="n8n-suggest">🎯 Tìm kiếm tập khách hàng.Ví dụ:Bất động sản</button>
     </div>
     <div id="n8n-chat-input-container">
       <span id="n8n-input-menu">☰</span>
