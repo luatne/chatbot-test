@@ -310,9 +310,8 @@ style.innerHTML = `
       <button id="n8n-chat-send">➤</button>
     </div>
     <div id="n8n-chat-footer">
-  Top 5 Global Social Data Platforms of 2024
-  <a href="https://thealita.com/" target="_blank" style="text-decoration: none;">
-  <span style="color: #10b981; font-weight: bold;">Powered by Alita</span>
+  <a href="https://support.thealita.com" target="_blank" style="text-decoration: none;">
+  <span style="color: #10b981; font-weight: bold;">Online Ticket Support</span>
 </a>
 
 </div>
