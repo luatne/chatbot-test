@@ -278,7 +278,7 @@ style.innerHTML = `
   cursor: pointer;
   margin-right: 10px;
 }
-.n8n-bot {
+.msg.bot .bubble {
   font-size: 10px !important;
 }
 
