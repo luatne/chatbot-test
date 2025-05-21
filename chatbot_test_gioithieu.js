@@ -279,7 +279,7 @@ style.innerHTML = `
   margin-right: 10px;
 }
 .msg.bot .bubble {
-  font-size: 10px !important;
+  font-size: 13px !important;
 }
 
 `;
