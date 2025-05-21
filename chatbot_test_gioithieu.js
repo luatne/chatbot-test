@@ -279,7 +279,7 @@ style.innerHTML = `
   margin-right: 10px;
 }
 .n8n-bot {
-  font-size: 13px !important;
+  font-size: 10px !important;
 }
 
 `;
