@@ -278,7 +278,9 @@ style.innerHTML = `
   cursor: pointer;
   margin-right: 10px;
 }
-
+.n8n-bot {
+  font-size: 13px !important;
+}
 
 `;
   document.head.appendChild(style);
