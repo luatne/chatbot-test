@@ -278,6 +278,9 @@ style.innerHTML = `
   cursor: pointer;
   margin-right: 10px;
 }
+.msg.bot .bubble {
+  font-size: 14px !important;
+}
 
 
 `;
